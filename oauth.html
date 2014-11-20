@@ -4,7 +4,7 @@ var _search = location.search;
 _search = _search.substr(1).split('&');
 var search = [];
 for(var i=0; i<_search.length; i++){
-	var kv = _search.split('=');
+	var kv = _search[i].split('=');
 	search[kv[0]] = search[kv[1]];
 }
 var code = search['code'];
