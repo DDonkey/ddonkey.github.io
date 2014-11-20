@@ -52,13 +52,19 @@ function getRepoList(callback){
 }
 
 function showlist(repos){
-	var ul = document.createElement('ul');
-	for(var i=0; i<repos.length; i++){
-		var li = document.createElement('li');
-		li.innerText = repos[i].full_name;
-		ul.appendChild(li);
-	}
-	document.getElementsByTagName('body')[0].appendChild(ul);
+	getUserInfo(function(r){
+		var username = r.login;
+		var ul = document.createElement('ul');
+		for(var i=0; i<repos.length; i++){
+			var li = document.createElement('li');
+			li.innerText = repos[i].full_name;
+			if(repos[i].full_name.toLowerCase() == (username+'/'+username+'.github.io').toLowerCase() || repos[i].full_name.toLowerCase() == (username+'/'+username+'.github.com').toLowerCase()){
+				li.style.color = 'red';
+			}
+			ul.appendChild(li);
+		}
+		document.getElementsByTagName('body')[0].appendChild(ul);
+	});
 }
 </script>
 </body>
