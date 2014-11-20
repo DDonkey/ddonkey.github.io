@@ -1,2 +1,17 @@
-<h2>It Works!</h2>
-<h3>Dummy Donkey</h3>
+<!Doctype html>
+<html>
+<head>
+<title>Dummy Donkey</title>
+<link rel="shortcut icon" href="dd_64.png" type="image/png" />
+<link rel="stylesheet" href="pure-min.css">
+<script src="angular.min.js"></script>
+</head>
+<body>
+<button id="auth">Auth</button>
+<script>
+document.getElementById('auth').onclick = function(){
+	location.href = 'https://github.com/login/oauth/authorize?client_id=37166cf1a32a1b3f6701&redirect_uri=http://dummydonkey.com/oauth.html&scope=user,repo';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+var _search = location.search;
+_search = _search.substr(1).split('&');
+var search = [];
+for(var i=0; i<_search.length; i++){
+	var kv = _search.split('=');
+	search[kv[0]] = search[kv[1]];
+}
+var code = search['code'];
+var client_id = '37166cf1a32a1b3f6701';
+var client_secret = '32e53d7c6a4ab62010e94fa760c13576f84dffb7';
+var url = 'https://github.com/login/oauth/access_token';
+$.post(url, {
+	code: code,
+	client_id: client_id,
+	client_secret: client_secret
+},function(result){
+	console.log(result);
+})
+</script>
