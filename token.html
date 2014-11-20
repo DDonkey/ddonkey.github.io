@@ -5,7 +5,7 @@ _search = _search.substr(1).split('&');
 var search = {};
 for(var i=0; i<_search.length; i++){
 	var kv = _search[i].split('=');
-	search[kv[0]] = search[kv[1]];
+	search[kv[0]] = kv[1];
 }
 var token = search['access_token'];
 
