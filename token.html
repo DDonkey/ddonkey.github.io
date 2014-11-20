@@ -23,7 +23,11 @@ function githubApiRequest(uri, parameter, callback){
 	}
 	q += 'access_token='+token;
 	var url = 'https://api.github.com'+uri+'?'+q;
-	$.ajax(url, callback);
+	$.ajax({
+		url: url,
+		dataType: 'json',
+		success: callback
+	});
 }
 
 function getUserInfo(callback){
