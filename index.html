@@ -15,7 +15,7 @@ if(!token){
 	btn.onclick = function(){
 		location.href = 'https://github.com/login/oauth/authorize?client_id=37166cf1a32a1b3f6701&scope=user,repo';
 	}
-	document.getElementsByTagName('body')[0].append(btn);
+	document.getElementsByTagName('body')[0].appendChild(btn);
 }
 else{
 	getRepoList(showlist);
@@ -55,9 +55,9 @@ function showlist(repos){
 	for(var i=0; i<repos.length; i++){
 		var li = document.createElement('li');
 		li.innerText = repos[i].full_name;
-		ul.append(li);
+		ul.appendChild(li);
 	}
-	document.getElementsByTagName('body')[0].append(ul);
+	document.getElementsByTagName('body')[0].appendChild(ul);
 }
 </script>
 </body>
