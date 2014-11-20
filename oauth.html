@@ -11,11 +11,16 @@ var code = search['code'];
 var client_id = '37166cf1a32a1b3f6701';
 var client_secret = '32e53d7c6a4ab62010e94fa760c13576f84dffb7';
 var url = 'https://github.com/login/oauth/access_token';
-$.post(url, {
-	code: code,
-	client_id: client_id,
-	client_secret: client_secret
-},function(result){
-	console.log(result);
-})
+var fd = new FormData();
+fd.append('code', code);
+fd.append('client_id', client_id);
+fd.append('client_secret', client_secret);
+fd.append('redirect_uri', 'http://dummydonkey.com/token.html');
+$.ajax({
+	url: url,
+	type: "POST",
+	data: fd,
+	processData: false,
+	contentType: false
+});
 </script>
