@@ -1,4 +1,6 @@
-angular.module('DD',['ngRoute']).config(['$routeProvider', function($routeProvider){
+DD = DD || angular.module('DD',['ngRoute']);
+
+DD.config(['$routeProvider', function($routeProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/home.html',
