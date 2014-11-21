@@ -14,7 +14,6 @@ var github = function(token){
 		else{
 			parameter = parameter?parameter:{};
 		}
-		parameter.access_token = token;
 
 		if(method.toUpperCase() == 'POST'){
 			parameter = JSON.stringify(parameter);
@@ -26,6 +25,7 @@ var github = function(token){
 			type: method,
 			data: parameter,
 			dataType: 'json',
+			headers: {Authorization: 'token '+token},
 			contentType: 'application/json; charset=utf-8',
 			success: callback
 		});
