@@ -24,6 +24,22 @@ var github = function(token){
 			dataType: 'json',
 			success: callback
 		});
+	};
+
+	scope.getAuthAddr = function(cliendId, scopes){
+		var authBase = 'https://github.com/login/oauth/authorize';
+		var parameter = {
+			client_id: cliendId,
+			scope: scopes.join(',')
+		};
+		var q = '';
+		for(var key in parameter){
+			if(q){
+				q += '&';
+			}
+			q += key+'='+parameter[key];
+		}
+		return authBase+'?'+q;
 	}
 
 	scope.getUserInfo = function(callback){

@@ -11,11 +11,12 @@
 <body>
 <script>
 var token = document.cookie;
+var g = new github(token);
 if(!token){
 	var btn = document.createElement('button');
 	btn.innerText = 'Auth';
 	btn.onclick = function(){
-		location.href = 'https://github.com/login/oauth/authorize?client_id=37166cf1a32a1b3f6701&scope=user,repo';
+		location.href = g.getAuthAddr('37166cf1a32a1b3f6701',['user','repo']);
 	}
 	document.getElementsByTagName('body')[0].appendChild(btn);
 }
