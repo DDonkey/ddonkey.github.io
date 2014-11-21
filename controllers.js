@@ -1,4 +1,4 @@
-DD = DD || angular.module('DD',['ngRoute']);
+var DD = DD || angular.module('DD',['ngRoute']);
 
 DD.controller('AuthController', function($scrop){
 	$scrop.auth = function(){
