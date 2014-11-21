@@ -1,6 +1,6 @@
 var DD = DD || angular.module('DD',['ngRoute']);
 
-DD.controller('AuthController', ['$scope', '$window', function($scope, $location){
+DD.controller('AuthController', ['$scope', '$window', function($scope, $window){
 	$scope.auth = function(){
 		var authUrl = g.getAuthURL('37166cf1a32a1b3f6701',['user','repo']);
 		$window.location.href = authUrl;
