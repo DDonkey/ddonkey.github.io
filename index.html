@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="pure-min.css">
 <script src="jquery-2.1.1.min.js"></script>
 <script src="angular.min.js"></script>
+<script src="github.api.js"></script>
 </head>
 <body>
 <script>
@@ -19,40 +20,12 @@ if(!token){
 	document.getElementsByTagName('body')[0].appendChild(btn);
 }
 else{
-	getRepoList(showlist);
-}
-
-function githubApiRequest(uri, parameter, callback){
-	if(typeof(parameter)=='function'){
-		callback = parameter;
-		parameter = {};
-	}
-	else{
-		parameter = parameter?parameter:{};
-	}
-	var q = '';
-	for (var key in parameter) {
-		q += key + '=' + parameter[key]+'&';
-	}
-	q += 'access_token='+token;
-	var url = 'https://api.github.com'+uri+'?'+q;
-	$.ajax({
-		url: url,
-		dataType: 'json',
-		success: callback
-	});
-}
-
-function getUserInfo(callback){
-	githubApiRequest('/user', callback);
-}
-
-function getRepoList(callback){
-	githubApiRequest('/user/repos', callback);
+	var g = new github(token);
+	g.getRepoList(showlist);
 }
 
 function showlist(repos){
-	getUserInfo(function(r){
+	g.getUserInfo(function(r){
 		var username = r.login;
 		var ul = document.createElement('ul');
 		for(var i=0; i<repos.length; i++){
