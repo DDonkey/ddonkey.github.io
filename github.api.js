@@ -2,7 +2,7 @@ var github = function(token){
 	var scope = this;
 
 	scope.githubApiRequest = function(uri, method, parameter, callback){
-		if(!method){
+		if(typeof(method)!=='string'){
 			method = 'GET';
 			parameter = method;
 			callback = parameter;
