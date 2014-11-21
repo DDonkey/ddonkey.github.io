@@ -26,6 +26,7 @@ var github = function(token){
 			type: method,
 			data: parameter,
 			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
 			success: callback
 		});
 	};
