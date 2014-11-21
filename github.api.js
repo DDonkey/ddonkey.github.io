@@ -15,9 +15,7 @@ var github = function(token){
 			parameter = parameter?parameter:{};
 		}
 
-		if(method.toUpperCase() == 'POST'){
-			parameter = JSON.stringify(parameter);
-		}
+		parameter = JSON.stringify(parameter);
 
 		var url = 'https://api.github.com'+uri;
 		$.ajax({
