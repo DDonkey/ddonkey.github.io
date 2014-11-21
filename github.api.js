@@ -26,7 +26,7 @@ var github = function(token){
 		});
 	};
 
-	scope.getAuthAddr = function(cliendId, scopes){
+	scope.getAuthURL = function(cliendId, scopes){
 		var authBase = 'https://github.com/login/oauth/authorize';
 		var parameter = {
 			client_id: cliendId,
@@ -64,5 +64,13 @@ var github = function(token){
 
 	scope.deleteFile = function(owner, repo, path, callback){
 		scope.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'DELETE', callback);
+	};
+
+	scope.editRepo = function(owner, repo, options, callback){
+		scope.githubApiRequest('/repos/'+owner+'/'+repo, 'PATCH', options, callback);
+	};
+
+	scope.forkRepo = function(owner, repo, callback){
+		scope.githubApiRequest('/repos/'+owner+'/'+repo+'/forks', 'POST', callback);
 	};
 }

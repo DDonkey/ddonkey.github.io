@@ -1,45 +1,17 @@
 <!Doctype html>
-<html>
+<html ng-app="DD">
 <head>
 <title>Dummy Donkey</title>
 <link rel="shortcut icon" href="dd_64.png" type="image/png" />
 <link rel="stylesheet" href="pure-min.css">
 <script src="jquery-2.1.1.min.js"></script>
 <script src="angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="router.js"></script>
 <script src="github.api.js"></script>
+<script src="dd.js"></script>
 </head>
 <body>
-<script>
-var token = document.cookie;
-var g = new github(token);
-if(!token){
-	var btn = document.createElement('button');
-	btn.innerText = 'Auth';
-	btn.onclick = function(){
-		location.href = g.getAuthAddr('37166cf1a32a1b3f6701',['user','repo']);
-	}
-	document.getElementsByTagName('body')[0].appendChild(btn);
-}
-else{
-	var g = new github(token);
-	g.getRepoList(showlist);
-}
-
-function showlist(repos){
-	g.getUserInfo(function(r){
-		var username = r.login;
-		var ul = document.createElement('ul');
-		for(var i=0; i<repos.length; i++){
-			var li = document.createElement('li');
-			li.innerText = repos[i].full_name;
-			if(repos[i].full_name.toLowerCase() == (username+'/'+username+'.github.io').toLowerCase() || repos[i].full_name.toLowerCase() == (username+'/'+username+'.github.com').toLowerCase()){
-				li.style.color = 'red';
-			}
-			ul.appendChild(li);
-		}
-		document.getElementsByTagName('body')[0].appendChild(ul);
-	});
-}
-</script>
+<div ng-view></div>
 </body>
 </html>
