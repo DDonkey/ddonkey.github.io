@@ -65,8 +65,8 @@ var github = function(token){
 		scope.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'PUT', options, callback);
 	};
 
-	scope.deleteFile = function(owner, repo, path, callback){
-		scope.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'DELETE', callback);
+	scope.deleteFile = function(owner, repo, path, options callback){
+		scope.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'DELETE', options, callback);
 	};
 
 	scope.editRepo = function(owner, repo, options, callback){

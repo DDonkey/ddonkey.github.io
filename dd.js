@@ -33,17 +33,25 @@ function changeRepoName(repoInfo){
 }
 
 function createFile(path, content){
-	g.createFile(u.login, u.login+'.github.io', path, {
+	var options = {
 		path: path,
 		message: 'Create '+path,
 		content: $.base64.encode(content)
-	}, function(result){
+	};
+	g.createFile(u.login, u.login+'.github.io', path, options, function(result){
 		console.log(result);
 	});
 }
 
 function deleteFile(path){
-	g.deleteFile(u.login, u.login+'.github.io', path, function(result){
-		console.log(result);
+	g.getContent(u.login, u.login+'.github.io', path, function(result){
+		var options = {
+			path: path,
+			message: 'Delete '+path,
+			sha: result.sha
+		};
+		g.deleteFile(u.login, u.login+'.github.io', path, options, function(result){
+			console.log(result);
+		});
 	});
 }
