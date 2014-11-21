@@ -7,15 +7,10 @@ DD.controller('AuthController', function($scope){
 	}
 });
 
-DD.controller('HomeController', function($scope, getRepoList){
-	console.log(1);
-	$scope.getRepoList = getRepoList;
-	$scope.repos = [{
-		full_name: 'test'
-	}];
-	/*
-	$scope.$watch('getRepoList.repos', function(repos){
-		$scope.repos = repos;
+DD.controller('HomeController', function($scope){
+	g.getRepoList(function(repos){
+		$scope.$apply(function(){
+			$scope.repos = repos;
+		});
 	});
-	*/
 });
