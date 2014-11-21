@@ -16,6 +16,10 @@ var github = function(token){
 		}
 		parameter.access_token = token;
 
+		if(method.toUpperCase() == 'POST'){
+			parameter = JSON.stringify(parameter);
+		}
+
 		var url = 'https://api.github.com'+uri;
 		$.ajax({
 			url: url,
