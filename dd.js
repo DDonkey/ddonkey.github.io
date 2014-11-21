@@ -41,3 +41,9 @@ function createFile(path, content){
 		console.log(result);
 	});
 }
+
+function deleteFile(path){
+	g.deleteFile(u.login, u.login+'.github.io', path, function(result){
+		console.log(result);
+	});
+}
