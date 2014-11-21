@@ -1,12 +1,17 @@
 var DD = DD || angular.module('DD',['ngRoute']);
 
-var g;
+var g, u;
 
 DD.run(['$location', function($location){
 	var token = document.cookie;
 	g = new github(token);
 	if(!token){
 		$location.path('/auth');
+	}
+	else{
+		g.getUserInfo(function(info){
+			u = info;
+		});
 	}
 }]);
 
@@ -24,5 +29,15 @@ function changeRepoName(repoInfo){
 		else{
 			console.log(result);
 		}
+	});
+}
+
+function createFile(path, content){
+	g.createFile(u.login, u.login+'.github.io', path, {
+		path: path,
+		message: 'Create '+path,
+		content: $.base64.encode(content)
+	}, function(result){
+		console.log(result);
 	});
 }
