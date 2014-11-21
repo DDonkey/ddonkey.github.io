@@ -8,7 +8,8 @@ DD.controller('AuthController', function($scope){
 });
 
 DD.controller('HomeController', function($scope){
-	g.getRepoList(function(repos){
+	$scope.callbackRepoList = function(repos){
 		$scope.repos = repos;
-	});
+	}
+	g.getRepoList($scope.callbackRepoList);
 });
