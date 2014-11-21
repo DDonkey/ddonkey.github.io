@@ -12,7 +12,7 @@ function initDD(){
 
 function changeRepoName(repoInfo){
 	g.editRepo(repoInfo.owner.login, repoInfo.name, {
-		name: repoInfo.owner.login+'.github.io';
+		name: repoInfo.owner.login+'.github.io'
 	}, function(result){
 		if(result.name == repoInfo.owner.login+'.github.io'){
 			console.log('Success!');
