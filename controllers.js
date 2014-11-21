@@ -7,7 +7,8 @@ DD.controller('AuthController', function($scope){
 	}
 });
 
-DD.controller('HomeController', function($scope){
+DD.controller('HomeController', function($scope, getRepoList){
+	$scope.getRepoList = getRepoList;
 	$scope.$watch('getRepoList.repos', function(repos){
 		$scope.repos = repos;
 	});
