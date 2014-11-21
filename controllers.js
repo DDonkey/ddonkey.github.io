@@ -8,6 +8,7 @@ DD.controller('AuthController', function($scope){
 });
 
 DD.controller('HomeController', function($scope, getRepoList){
+	console.log(1);
 	$scope.getRepoList = getRepoList;
 	$scope.repos = [{
 		full_name: 'test'
