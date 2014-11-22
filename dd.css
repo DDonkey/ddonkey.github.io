@@ -9,7 +9,8 @@ body {
 }
 
 .auth {
-	background: #ddc69a;
+	background: #ddc69a url(background.png) no-repeat center;
+	background-size: 100%;
 }
 
 .auth .background {
