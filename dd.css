@@ -4,8 +4,8 @@ html, body, .main, .auth {
 }
 
 body {
-	min-width: 1000px;
-	min-height: 625px;
+	min-width: 800px;
+	min-height: 450px;
 }
 
 .auth {
