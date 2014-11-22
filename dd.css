@@ -22,11 +22,11 @@ body {
 .auth button {
 	position: absolute;
 	left: 25%;
-	top: 62.5%;
+	top: 65%;
 	color: #715262;
 	background: #ddc69a;
 }
 
 .auth button:hover {
-	background: #ddc69a;
+	background: #e0cbb6;
 }
