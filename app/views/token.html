@@ -1,0 +1,11 @@
+<script>
+var _search = location.search;
+_search = _search.substr(1).split('&');
+var search = {};
+for(var i=0; i<_search.length; i++){
+  var kv = _search[i].split('=');
+  search[kv[0]] = kv[1];
+}
+localStorage['token'] = search['access_token']
+location.href = 'http://localhost:9000/';
+</script>

@@ -2,19 +2,6 @@ var DD = DD || angular.module('DD',['ngRoute']);
 
 var g, u;
 
-DD.run(['$location', function($location){
-	var token = document.cookie;
-	g = new github(token);
-	if(!token){
-		$location.path('/auth');
-	}
-	else{
-		g.getUserInfo(function(info){
-			u = info;
-		});
-	}
-}]);
-
 function initDD(){
 	g.forkRepo('DDonkey', 'blog', changeRepoName);
 }
