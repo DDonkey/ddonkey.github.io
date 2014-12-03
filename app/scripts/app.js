@@ -36,7 +36,7 @@ angular
       });
   })
   .run(['$location', 'github', '$rootScope', function($location, github, $rootScope){
-    var token = localStorage['token'];
+    var token = localStorage.token;
     if(!token){
       $location.path('/auth');
     }

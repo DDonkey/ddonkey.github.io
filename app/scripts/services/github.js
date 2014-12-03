@@ -10,14 +10,13 @@
 angular.module('ddonkeyApp')
   .service('github', ['$http', function github($http) {
     // AngularJS will instantiate a singleton by calling "new" on this functionthis
-    this.token = "";
+    this.token = '';
     this.githubApiRequest = function(uri, method, parameter){
         if(typeof(method)!=='string'){
             parameter = method;
             method = 'GET';
         }
-        if(typeof(parameter)=='function'){
-            callback = parameter;
+        if(typeof(parameter) ==='function'){
             parameter = {};
         }
         else{
@@ -45,7 +44,7 @@ angular.module('ddonkeyApp')
     this.getAuthURL = function(cliendId, thiss){
         var authBase = 'https://github.com/login/oauth/authorize';
         var parameter = {
-            client_id: cliendId,
+            'client_id': cliendId,
             this: thiss.join(',')
         };
         var q = '';
@@ -56,7 +55,7 @@ angular.module('ddonkeyApp')
             q += key+'='+parameter[key];
         }
         return authBase+'?'+q;
-    }
+    };
 
     this.getUserInfo = function(){
         return this.githubApiRequest('/user');

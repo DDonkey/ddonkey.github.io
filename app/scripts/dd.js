@@ -1,3 +1,5 @@
+'use strict';
+/*
 var DD = DD || angular.module('DD',['ngRoute']);
 
 var g, u;
@@ -42,3 +44,4 @@ function deleteFile(path){
 		});
 	});
 }
+*/

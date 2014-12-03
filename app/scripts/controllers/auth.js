@@ -12,5 +12,5 @@ angular.module('ddonkeyApp')
     $scope.auth = function(){
         var authUrl = github.getAuthURL('37166cf1a32a1b3f6701',['user','repo']);
         $window.location.href = authUrl;
-    }
+    };
   }]);
