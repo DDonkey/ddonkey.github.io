@@ -4,8 +4,9 @@
 ## Setup env
 ### Mac/*inx
 - install *git* and clone the appropriate branch
- - ```git clone --branch master https://github.com/rebornix/IssueMan.git issueman```
+ - ```git clone --branch master https://github.com/DDonkey/ddonkey.github.io.git```
 - install *node*
+ - `brew install node`
 - launch terminal and install the following packages in the global space: *grunt-cli*, *bower*
  - `npm install -g grunt-cli`
  - `npm install -g bower`
