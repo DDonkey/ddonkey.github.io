@@ -9,6 +9,8 @@
  */
 angular.module('ddonkeyApp')
   .controller('AuthoringCtrl', ['$scope', function ($scope) {
+        $scope.content = "This is the *first* editor.";
+
         /* global Markdown */
         var defaultConverter = Markdown.getSanitizingConverter();
                     
@@ -22,5 +24,4 @@ angular.module('ddonkeyApp')
         
         editor.run();
 
-        $scope.mdTopic = "This is the *first* editor.";
   }]);

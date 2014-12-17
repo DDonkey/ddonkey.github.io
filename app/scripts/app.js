@@ -32,7 +32,7 @@ angular
         controller: 'AuthCtrl'
       })
       .when('/editor', {
-        templateUrl: 'views/editor.html'
+        templateUrl: 'views/editor.html',
       })
       .otherwise({
         redirectTo: '/'
