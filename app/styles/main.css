@@ -2,8 +2,7 @@
 body {
   background-color: White;
   font-family: sans-serif;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   height: 100%;
 }
 
@@ -94,11 +93,15 @@ blockquote {
 .wmd-input 
 {
     background-color: #fcfcfc;
-    height: 500px; 
+    height: 100%; 
+    border: none;
+    resize: none;
+    outline: none;
 }
 
 .wmd-preview 
 { 
+  height: 100%; 
   background-color: #f6f6f6; 
 }
 
