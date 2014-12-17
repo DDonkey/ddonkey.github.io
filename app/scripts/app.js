@@ -13,30 +13,33 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider, $locationProvider) {
+    $stateProvider
+      .state('index', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
+      .state('about', {
+        url: '/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/auth', {
+      .state('auth', {
+        url: '/auth',
         templateUrl: 'views/auth.html',
         controller: 'AuthCtrl'
       })
-      .when('/editor', {
+      .state('editor', {
+        url: '/editor',
         templateUrl: 'views/editor.html',
-      })
-      .otherwise({
-        redirectTo: '/'
       });
+
+      $locationProvider.html5Mode(true);
   })
   .run(['$location', 'github', '$rootScope', function($location, github, $rootScope){
     var token = localStorage.token;

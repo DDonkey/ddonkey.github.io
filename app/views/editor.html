@@ -1,18 +1,18 @@
-<div ng-controller="AuthoringCtrl">
-<div class="row" style="background-color: #4a4a4a; height: 48px;">
-  <div id="control-bar">
-    <ul class="control-buttons">
-      <li class="control-button">
-        <i class="fa fa-home control-txt"></i>
-      </li>
-    </ul>
+<div ng-controller="AuthoringCtrl" style="height:100%">
+  <div class="row" style="background-color: #4a4a4a; height: 48px;">
+    <div id="control-bar">
+      <ul class="control-buttons">
+        <li class="control-button">
+          <a ui-sref="index"><i class="fa fa-home control-txt"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div id="wmd-button-bar"></div>
   </div>
-  <div id="wmd-button-bar"></div>
-</div>
-<div class="row" style="height: 100%; margin-top: -48px; padding-top: 48px;"> 
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="height: 100%; border-right: 1px solid #c0c0c0;padding-right: 0px;">
-    <textarea class="wmd-input col-xs-12" id="wmd-input" ng-model="content" />
+  <div class="row" style="height: 100%; margin-top: -48px; padding-top: 48px;"> 
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="height: 100%; border-right: 1px solid #c0c0c0;padding-right: 0px;">
+      <textarea class="wmd-input col-xs-12" id="wmd-input" ng-model="content" />
+    </div>
+    <div id="wmd-preview" class="wmd-preview col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
   </div>
-  <div id="wmd-preview" class="wmd-preview col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
-</div>
 </div>
