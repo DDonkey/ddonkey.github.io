@@ -1,0 +1,34 @@
+<div class="row" style="background-color: #4a4a4a; height: 48px;" ng-controller="AuthoringCtrl">
+          <div id="control-bar">
+            <ul class="control-buttons">
+              <li class="control-button">
+                <i class="fa fa-home control-txt"></i>
+              </li>
+            </ul>
+          </div>
+          <div id="wmd-button-bar"></div>
+        </div>
+        <div class="row"> 
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="border-right: 1px solid #c0c0c0;padding-right: 0px;">
+            <textarea class="wmd-input col-xs-12" id="wmd-input">
+This is the *first* editor.
+------------------------------
+
+Just plain **Markdown**, except that the input is sanitized:
+
+<marquee>I'm the ghost from the past!</marquee>
+
+and that it implements "fenced blockquotes" via a plugin:
+
+"""
+Do it like this:
+
+1. Have idea.
+2. ???
+3. Profit!
+"""
+</textarea>
+          </div>
+          <div id="wmd-preview" class="wmd-preview col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+        </div>
+        <br /> <br />

@@ -31,6 +31,9 @@ angular
         templateUrl: 'views/auth.html',
         controller: 'AuthCtrl'
       })
+      .when('/editor', {
+        templateUrl: 'views/editor.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
