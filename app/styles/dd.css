@@ -3,11 +3,6 @@ html, body, .main, .auth {
 	height: 100%;
 }
 
-body {
-	min-width: 800px;
-	min-height: 450px;
-}
-
 .auth {
 	background: #ddc69a url(background.png) no-repeat center;
 	background-size: 100%;
