@@ -12,4 +12,8 @@ angular.module('ddonkeyApp')
     github.getRepoList().success(function(repos){
         $scope.repos = repos;
     });
+
+    $scope.fetchChildren = function(id) {
+
+    };
   }]);

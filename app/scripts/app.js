@@ -21,8 +21,7 @@ angular
     $stateProvider
       .state('index', {
         url: '/',
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
       .state('about', {
         url: '/about',
