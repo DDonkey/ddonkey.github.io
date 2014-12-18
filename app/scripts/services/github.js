@@ -41,6 +41,20 @@ angular.module('ddonkeyApp')
         return $http(req);
     };
 
+    this.githubAPISlim = function(url, method, parameter) {
+        parameter = parameter?parameter:{};
+        var req = {
+            url: url,
+            type: method,
+            data: parameter,
+            headers: {
+                Authorization: 'token '+ this.token
+            }
+        };
+
+        return $http(req);
+    };
+
     this.getAuthURL = function(cliendId, thiss){
         var authBase = 'https://github.com/login/oauth/authorize';
         var parameter = {
@@ -70,8 +84,12 @@ angular.module('ddonkeyApp')
     };
 
     this.getContent = function(owner, repo, path){
-        return this.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path);
+        return this.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path || '');
     };
+
+    this.getBlobs = function(url) {
+        return this.githubAPISlim(url, 'Get');
+    }
 
     this.createFile = function(owner, repo, path, options){
         return this.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'PUT', options);

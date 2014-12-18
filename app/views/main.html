@@ -1,7 +1,16 @@
 <div ng-controller="MainCtrl">
-  <ul>
-    <li ng-repeat="repo in repos" ng-click="fecthChildren('{{repo.full_name}}')">
-	  <a>{{ repo.full_name }}</a>
-	</li>
-  </ul>
+  <div class="col-xs-6">
+	  <ul>
+	    <li ng-repeat="repo in repos" >
+		  <a ng-click="fetchChildren(repo.full_name)">{{ repo.full_name }}</a>
+		</li>
+	  </ul>
+	</div>
+	<div class="col-xs-6">
+	  <ul>
+	    <li ng-repeat="blog in blogList" >
+		  <a ng-click="selectTopic(blog)">{{ blog.name }}</a>
+		</li>
+	  </ul>
+	</div>
 </div>

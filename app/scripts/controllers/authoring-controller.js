@@ -8,8 +8,8 @@
  * Controller of the ddonkeyApp
  */
 angular.module('ddonkeyApp')
-  .controller('AuthoringCtrl', ['$scope', function ($scope) {
-        $scope.content = "This is the *first* editor.";
+  .controller('AuthoringCtrl', ['$scope', 'topicModel', 'github', function ($scope, topicModel, github) {
+        $scope.content = "";
 
         /* global Markdown */
         var defaultConverter = Markdown.getSanitizingConverter();
@@ -24,4 +24,8 @@ angular.module('ddonkeyApp')
         
         editor.run();
 
+        github.getBlobs(topicModel.selectedTopic.url).success(function(item) {
+            var rawContent = decodeURIComponent(escape(window.atob(item["content"])));
+            $scope.content = rawContent;
+          });
   }]);
