@@ -1671,14 +1671,14 @@
             buttons.hr = makeFAButton("wmd-hr-button", "fa-minus", getString("hr"), "-180px", bindCommand("doHorizontalRule"));
 
             buttons.undo = makeFAButton("wmd-undo-button", "fa-undo",getString("undo"), "-200px", null);
-            buttons.undo.execute = function (manager) { if (manager) manager.undo(); };
+            buttons.undo.execute = function (manager) { inputBox.session.getUndoManager().undo(); };
 
             var redoTitle = /win/.test(nav.platform.toLowerCase()) ?
                 getString("redo") :
                 getString("redomac"); // mac and other non-Windows platforms
 
             buttons.redo = makeFAButton("wmd-redo-button", "fa-repeat", redoTitle, "-220px", null);
-            buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
+            buttons.redo.execute = function (manager) { inputBox.session.getUndoManager().redo(); };
 
             if (helpOptions) {
                 var helpButton = document.createElement("li");
