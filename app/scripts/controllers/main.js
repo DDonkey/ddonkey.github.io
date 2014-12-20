@@ -8,9 +8,18 @@
  * Controller of the ddonkeyApp
  */
 angular.module('ddonkeyApp')
-  .controller('MainCtrl', ['$scope', 'github', 'topicModel', '$state', function ($scope, github, topicModel, $state) {
+  .controller('MainCtrl', ['$scope', 'github', 'topicModel', '$state', '$rootScope',
+    function ($scope, github, topicModel, $state, $rootScope) {
     github.getRepoList().success(function(repos){
-        $scope.repos = repos;
+        if ($rootScope.currentUser) {
+            $scope.blogRepo = _.find(repos, {name: $rootScope.currentUser.login.toLowerCase() + ".github.io"});
+        }
+        else {
+            github.getUserInfo().success(function(info){
+                $rootScope.currentUser = info;
+                $scope.blogRepo = _.find(repos, {name: $rootScope.currentUser.login.toLowerCase() + ".github.io"});
+              });
+        }
     });
 
     $scope.repoInfo = {
