@@ -8,7 +8,7 @@
  * Controller of the ddonkeyApp
  */
 angular.module('ddonkeyApp')
-  .controller('AuthoringCtrl', ['$scope', 'topicModel', 'github', function ($scope, topicModel, github) {
+  .controller('AuthoringCtrl', ['$scope', 'topicModel', 'github', '$stateParams', function ($scope, topicModel, github, $stateParams) {
         $scope.content = "";
 
         /* global Markdown */
@@ -22,10 +22,17 @@ angular.module('ddonkeyApp')
         
         var editor = new Markdown.Editor(defaultConverter);
         
-        editor.run();
+        var ace1 = ace.edit("wmd-input");
+        ace1.setValue("", -1);
+        ace1.getSession().setUseWrapMode(true);
+        editor.run(ace1);
 
-        github.getBlobs(topicModel.selectedTopic.url).success(function(item) {
+        var contentUrl = "https://api.github.com/repos/" + $stateParams['owner'] + "/" + 
+          $stateParams['repo'] + "/contents/" + $stateParams['path']+ "?ref=master";
+
+        github.getBlobs(contentUrl).success(function(item) {
             var rawContent = decodeURIComponent(escape(window.atob(item["content"])));
             $scope.content = rawContent;
+            ace1.setValue(rawContent, -1);
           });
   }]);

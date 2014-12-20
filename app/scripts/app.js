@@ -20,7 +20,7 @@ angular
   .config(function ($stateProvider, $locationProvider) {
     $stateProvider
       .state('index', {
-        url: '/',
+        url: '',
         templateUrl: 'views/main.html'
       })
       .state('about', {
@@ -34,11 +34,11 @@ angular
         controller: 'AuthCtrl'
       })
       .state('editor', {
-        url: '/editor',
+        url: '/editor?owner&repo&path',
         templateUrl: 'views/editor.html',
       });
 
-      $locationProvider.html5Mode(true);
+      //$locationProvider.html5Mode(true);
   })
   .run(['$location', 'github', '$rootScope', function($location, github, $rootScope){
     var token = localStorage.token;

@@ -41,6 +41,9 @@ angular.module('ddonkeyApp')
     	topicModel.selectedTopic = topic;
     	topicModel.selectedTopic.owner = $scope.repoInfo.owner;
     	topicModel.selectedTopic.repoName = $scope.repoInfo.name;
-    	$state.go('editor');
+    	$state.go('editor', 
+            {owner: topicModel.selectedTopic.owner, 
+                repo: topicModel.selectedTopic.repoName, 
+                path: topicModel.selectedTopic.path});
     }
   }]);
