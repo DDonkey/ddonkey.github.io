@@ -17,10 +17,10 @@ angular
     'ngTouch',
     'ui.router'
   ])
-  .config(function ($stateProvider, $locationProvider) {
+  .config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
     $stateProvider
       .state('index', {
-        url: '',
+        url: '/',
         templateUrl: 'views/main.html'
       })
       .state('about', {
@@ -37,6 +37,8 @@ angular
         url: '/editor?owner&repo&path',
         templateUrl: 'views/editor.html',
       });
+
+      $urlRouterProvider.otherwise("/");
 
       //$locationProvider.html5Mode(true);
   })

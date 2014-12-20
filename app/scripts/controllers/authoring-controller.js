@@ -8,7 +8,8 @@
  * Controller of the ddonkeyApp
  */
 angular.module('ddonkeyApp')
-  .controller('AuthoringCtrl', ['$scope', 'topicModel', 'github', '$stateParams', function ($scope, topicModel, github, $stateParams) {
+  .controller('AuthoringCtrl', ['$scope', 'topicModel', 'github', '$stateParams', '$state',
+    function ($scope, topicModel, github, $stateParams, $state) {
         $scope.content = "";
 
         /* global Markdown */
@@ -31,8 +32,21 @@ angular.module('ddonkeyApp')
           $stateParams['repo'] + "/contents/" + $stateParams['path']+ "?ref=master";
 
         github.getBlobs(contentUrl).success(function(item) {
+            topicModel.selectedTopic = item;
             var rawContent = decodeURIComponent(escape(window.atob(item["content"])));
             $scope.content = rawContent;
             ace1.setValue(rawContent, -1);
           });
+
+        $scope.checkin = function() {
+          github.updateFile($stateParams['owner'], $stateParams['repo'], $stateParams['path'], {
+            path: topicModel.selectedTopic.path,
+            message: "checkin from dummydonkey",
+            content: window.btoa(unescape(encodeURIComponent(ace1.getSession().getValue()))),
+            sha: topicModel.selectedTopic.sha,
+            branch: 'master'
+          }).then(function(response) {
+            console.log(response.data);
+          });
+        };
   }]);

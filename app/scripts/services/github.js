@@ -29,7 +29,7 @@ angular.module('ddonkeyApp')
 
         var req = {
             url: url,
-            type: method,
+            method: method,
             data: parameter,
             dataType: 'json',
             headers: {
@@ -45,7 +45,7 @@ angular.module('ddonkeyApp')
         parameter = parameter?parameter:{};
         var req = {
             url: url,
-            type: method,
+            method: method,
             data: parameter,
             headers: {
                 Authorization: 'token '+ this.token
@@ -93,6 +93,10 @@ angular.module('ddonkeyApp')
 
     this.createFile = function(owner, repo, path, options){
         return this.githubApiRequest('/repos/'+owner+'/'+repo+'/contents/'+path, 'PUT', options);
+    };
+
+    this.updateFile = function(owner, repo, path, options) {
+        return this.githubAPISlim('https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path, 'Put', options);
     };
 
     this.deleteFile = function(owner, repo, path, options){

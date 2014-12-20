@@ -15,8 +15,6 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  var modRewrite = require('connect-modrewrite');
-
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -104,7 +102,7 @@ module.exports = function (grunt) {
               // connect.static(appConfig.app)
             ];
  
-            middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]'])); //Matches everything that does not contain a '.' (period)
+            //middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]'])); //Matches everything that does not contain a '.' (period)
             options.base.forEach(function(base) {
               middlewares.push(connect.static(base));
             });
