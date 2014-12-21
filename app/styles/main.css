@@ -179,3 +179,14 @@ blockquote {
     left: 8px;
     top: 0px;
 }
+
+.dialog .header {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px;
+  margin: 0px;
+}
+
+.dialog .footer_right {
+  text-align: right;
+  padding: 10px;
+}

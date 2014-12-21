@@ -1,0 +1,20 @@
+<div class="dialog popup">
+  <form ng-submit="ok()" class="form-horizontal">
+    <div class="header" style="padding: 10px;">
+      <N class="title">{{title}}</N>
+    </div>
+    <div class="popup-body" style="min-height: 100px;padding: 10px;">
+      <div>
+        <label class="form-label control-label">
+          Commit changes:
+        </label>
+        <div class="form-textarea">
+          <textarea class="form-control" name="message" ng-model="info.message" maxlength="150" rows="8" required></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="footer_right">
+      <button class="btn btn-primary" type="submit">Commit</button>
+    </div>
+  </form>
+</div>

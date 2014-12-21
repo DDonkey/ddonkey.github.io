@@ -10,12 +10,12 @@
  */
 angular
   .module('ddonkeyApp', [
-    'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ])
   .config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
     $stateProvider
