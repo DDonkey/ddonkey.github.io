@@ -1,12 +1,54 @@
-<div ng-controller="MainCtrl">
-	<div class="col-xs-6">
+<div ng-controller="MainCtrl" style="height: 100%;">
+	<div class="col-xs-2" style="text-align: center;border-right: 1px solid black;height: 100%">
+		<div style="margin-top: 50px;">
+			<img style="height: 120px; " href="{{rootScope.currentUser.html_url}}" ng-src="{{rootScope.currentUser.avatar_url}}" />
+		</div>
+		<div>
+			{{rootScope.currentUser.name}}
+		</div>
+		<div >
+			<div ng-if="rootScope.currentUser.company">
+				<i class="fa fa-group" /> {{rootScope.currentUser.company}}
+			</div>
+			<div ng-if="rootScope.currentUser.location">
+				<i class="fa fa-building" /> {{rootScope.currentUser.location}}
+			</div>
+			<div ng-if="rootScope.currentUser.email">
+				<i class="fa fa-envelope" /> {{rootScope.currentUser.email}}
+			</div>
+			<div>
+				{{rootScope.currentUser.followers}} followers
+				{{rootScope.currentUser.following}} following
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-10" style="margin-top: 50px;height: 100%; overflow-y: auto">
 	  <div>
-	  Your blog: <a ng-click="fetchChildren(blogRepo.full_name)">{{ blogRepo.full_name }}</a>
+	  Your blog: <a>{{ blogRepo.full_name }}</a>
 	  </div>
-	  <ul>
-	    <li ng-repeat="blog in blogList" >
-		  <a ng-click="selectTopic(blog)">{{ blog.name }}</a>
-		</li>
-	  </ul>
+	  <div>
+	  	<span>Commit Activities in latest 52 weeks</span>
+	  	<canvas id="commitActChart" width="800" height="200"></canvas>
+	  </div>
+	  <tabset>
+	    <tab>
+	      <tab-heading>
+	        <i class="fa fa-file-text"></i> Blog List
+	      </tab-heading>
+	      <ul>
+			<li ng-repeat="blog in blogList" >
+		      <a ng-click="selectTopic(blog)">{{ blog.name }}</a>
+			</li>
+		  </ul>
+		</tab>
+	    <tab>
+	      <tab-heading>
+	        <i class="fa fa-cog"></i> Setting
+	      </tab-heading>
+	      I've got an HTML heading, and a select callback. Pretty cool!
+	    </tab>
+	  </tabset>
+
+	  
 	</div>
 </div>
