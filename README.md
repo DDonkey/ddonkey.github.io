@@ -12,6 +12,7 @@
  - `npm install -g bower`
 - inside the local folder of source repositry run *npm* to install everything we need
  - `npm install`
+ - `install bower`
 - You can run grunt tasks and do development as usual.
 
 ### Grunt task
