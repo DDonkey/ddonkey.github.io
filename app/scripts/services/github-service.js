@@ -110,4 +110,9 @@ angular.module('ddonkeyApp')
     this.forkRepo = function(owner, repo){
         return this.githubApiRequest('/repos/'+owner+'/'+repo+'/forks', 'POST');
     };
+
+    // Analysis
+    this.getRepoCommitActivity = function(owner, repo) {
+        return this.githubApiRequest('/repos/'+owner+'/'+repo+'/stats/commit_activity', 'GET');
+    };
   }]);
