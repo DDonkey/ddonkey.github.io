@@ -9,6 +9,7 @@
 
 module.exports = function (grunt) {
 
+  require('shelljs/global');
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -361,6 +362,8 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.task.loadTasks('tasks');
+
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -405,6 +408,11 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+  ]);
+
+  grunt.registerTask('prod', [
+    'build',
+    'deploy'
   ]);
 
   grunt.registerTask('default', [
